@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { motion, useIsPresent } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface functionProps {
   toggle: (
@@ -16,11 +16,11 @@ type TaskItemProps = Omit<Task, 'editMode'> & functionProps;
 
 function TaskItem(props: TaskItemProps) {
   const { title, isComplete, toggle, id, selectTask } = props;
-  const isPresent = useIsPresent();
+  // const isPresent = useIsPresent();
   const animations = {
-    style: {
-      position: isPresent ? 'static' : 'absolute',
-    },
+    // style: {
+    //   position: isPresent ? 'static' : 'absolute',
+    // },
     initial: { scale: 0, opacity: 0 },
     animate: { scale: 1, opacity: 1 },
     exit: { scale: 0, opacity: 0 },
