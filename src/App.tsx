@@ -77,6 +77,7 @@ function App() {
     };
     setTasks(prev => [task, ...prev]);
     showToast('New Task Added', 'success');
+    setSelectedTask(task);
   };
 
   const updateTaskDetails = (newTask: Task) => {
