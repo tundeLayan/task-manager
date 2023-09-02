@@ -54,15 +54,6 @@ function App() {
       id: uuidv4(),
       editMode: false,
     },
-    {
-      title: 'test data 7',
-      description: 'default Description 6 ',
-      dueDate: '2023-09-01T18:08',
-      isComplete: false,
-      hasReminder: false,
-      id: uuidv4(),
-      editMode: false,
-    },
   ]);
 
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);

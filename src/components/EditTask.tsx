@@ -5,6 +5,9 @@ import {
   AiOutlineCheckCircle,
   AiTwotoneDelete,
 } from 'react-icons/ai';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+
+import { showToast } from '../utils/Toast';
 
 interface IProps {
   updateTaskDetails: (newTask: Task) => void;
@@ -46,6 +49,7 @@ const EditTask = (props: Task & IProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     updateTaskDetails(task);
+    showToast('Task has been updated', 'success');
   };
 
   return (
@@ -55,6 +59,7 @@ const EditTask = (props: Task & IProps) => {
           className="cursor-pointer border border-solid border-[#424242] rounded-lg w-fit p-2 hover:bg-tertiary2"
           data-test-id="isComplete"
           onClick={e => toggle(e, id)}
+          data-tooltip-id="complete"
         >
           {isComplete ? (
             <AiOutlineCheckCircle className="text-primary" />
@@ -65,10 +70,14 @@ const EditTask = (props: Task & IProps) => {
         <div
           data-test-id="hasReminder"
           className="cursor-pointer border border-solid border-[#424242] rounded-lg w-fit p-2 hover:bg-tertiary2 flex items-center"
+          data-tooltip-id="reminder"
         >
           <AiFillBell />
         </div>
-        <div className="cursor-pointer border border-solid border-[#424242] rounded-lg w-fit p-2 hover:bg-tertiary2 flex items-center">
+        <div
+          data-tooltip-id="delete"
+          className="cursor-pointer border border-solid border-[#424242] rounded-lg w-fit p-2 hover:bg-tertiary2 flex items-center"
+        >
           <AiTwotoneDelete
             className={'inline-block'}
             onClick={() => deleteTask(id)}
@@ -118,6 +127,14 @@ const EditTask = (props: Task & IProps) => {
           Save
         </button>
       </form>
+
+      <ReactTooltip id="complete" place="top" content="Mark as completed" />
+      <ReactTooltip
+        id="reminder"
+        place="top"
+        content="Toggle Reminder for Task"
+      />
+      <ReactTooltip id="delete" place="top" content="Delete Task" />
     </>
   );
 };
