@@ -24,7 +24,6 @@ export const showToast = (
     ...optionArgs,
   };
 
-  console.log('toast called', message, type);
   switch (type) {
     case 'success':
       toast.success(message, options);

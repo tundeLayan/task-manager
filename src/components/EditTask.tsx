@@ -110,7 +110,7 @@ const EditTask = (props: Task & IProps) => {
         </label>
         <br />
         <div>
-          <h3 className="text-lg text-title">Date</h3>
+          <h3 className="text-lg text-title">Due Date</h3>
           <input
             id="dueDate"
             name="dueDate"
