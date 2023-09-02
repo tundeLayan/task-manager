@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Lottie from 'react-lottie';
 
 import { NoData } from '../lotties/lottyFiles';

@@ -54,7 +54,7 @@ function TaskItem(props: TaskItemProps) {
           />
           <label htmlFor={`${id}`} className="">
             <h3
-              className={`text-xl text-left ml-2 inline-block ${
+              className={`text-xl text-left ml-4 inline-block ${
                 isComplete && 'line-through'
               }`}
             >
