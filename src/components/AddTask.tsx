@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { showToast } from '../utils/Toast';
+import { generateDate } from '../utils';
 
 type OmitId = Omit<Task, 'id'>;
 function AddTask({ addNewTask }: { addNewTask: (task: OmitId) => void }) {
@@ -34,11 +35,10 @@ function AddTask({ addNewTask }: { addNewTask: (task: OmitId) => void }) {
       showToast('Field cannot be empty', 'info');
       return;
     }
+    task.dueDate = generateDate();
     addNewTask(task);
     resetInputs();
   };
-
-  //state for adding new task ends here
 
   return (
     <form onSubmit={handleSubmit} className="flex gap-[2px]">
